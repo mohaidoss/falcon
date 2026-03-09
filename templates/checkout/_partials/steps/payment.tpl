@@ -22,9 +22,9 @@
         <div
             id="{$option.id}-container"
             class="mb-3 checkout-option-block checkout-option {if $selected_payment_option == $option.id || $is_free}selected{/if}">
-            <input class="ps-shown-by-js custom-control-input{if $option.binary} binary{/if}" id="{$option.id}"
+            <span><input class="ps-shown-by-js custom-control-input{if $option.binary} binary{/if}" id="{$option.id}"
                 data-module-name="{$option.module_name}" name="payment-option" type="radio" required
-                {if $selected_payment_option == $option.id || $is_free} checked {/if}>
+                {if $selected_payment_option == $option.id || $is_free || ($payment_options|@count === 1 && $module_options|@count === 1)} checked {/if}></span><span></span>
 
             <label class="card mb-0 cursor-pointer h-100"  for="{$option.id}">
                 <div class="card-body checkout-option__body py-sm-3 px-sm-4 p-2">
@@ -108,10 +108,7 @@
   <div id="payment-confirmation" class="mt-4 js-payment-confirmation">
     <div class="ps-shown-by-js">
       <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-lg d-none d-md-inline-block {if !$selected_payment_option} disabled {/if}">
-          {l s='Place order' d='Shop.Theme.Checkout'}
-        </button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block d-block d-md-none {if !$selected_payment_option} disabled {/if}">
+        <button type="submit" class="btn btn-primary btn-lg w-100 w-md-auto {if !$selected_payment_option} disabled {/if}">
           {l s='Place order' d='Shop.Theme.Checkout'}
         </button>
       </div>
