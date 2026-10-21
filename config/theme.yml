@@ -9,7 +9,7 @@ author:
 meta:
   compatibility:
       from: 8.0.0
-      to: ~
+      to: 9.99.99
 
   available_layouts:
     layout-full-width:
