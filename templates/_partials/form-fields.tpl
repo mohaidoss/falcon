@@ -186,6 +186,14 @@
           id="f-{$field.name}_{$uniqId}" {if $field.required} required{/if}>
         <label class="custom-file-label" for="f-{$field.name}_{$uniqId}">{l s='Choose file' d='Shop.Theme.Actions'}</label>
       </div>
+
+    {elseif $field.type === 'html'}
+      {block name='form_field_item_html'}
+        <div class="form-control-static">
+          {$field.value nofilter}
+        </div>
+      {/block}
+
     {else}
 
       {block name='form_field_item_other'}
